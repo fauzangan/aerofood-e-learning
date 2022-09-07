@@ -17,11 +17,11 @@ class ChangePasswordController extends Controller
     {       
         $request->validate([
             'old_password' => 'required',
-            'password' => 'required|min:6|string',
+            'password' => 'required|min:6|string|confirmed',
         ]);
 
         $currentPassword = auth()->user()->password;
-        $oldPassword = $request->password;
+        $oldPassword = $request->old_password;
         
         if (Hash::check($oldPassword, $currentPassword)) {
             $id = auth()->user()->id;

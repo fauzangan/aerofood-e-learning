@@ -40,7 +40,7 @@
           </li>
         @else
           <li class="nav-item">
-            <a class="btn btn-outline-primary {{ ($active === "login") ? 'active' : ''  }}" href="/login" role="button">Login<i class="bi bi-box-arrow-in-right"></i></a>
+            <a class="btn btn-outline-primary {{ Request::is('login*') ? 'active' : '' }}" href="/login" role="button">Login<i class="bi bi-box-arrow-in-right"></i></a>
           </li>
         @endauth
         </ul>

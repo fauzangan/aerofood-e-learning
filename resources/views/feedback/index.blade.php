@@ -15,19 +15,29 @@
           <form action="/feedback" method="POST">
             @csrf
             <div class="row mb-3">
-              <label for="name" class="col-sm-2 col-form-label @error('title') is-invalid @enderror">Name</label>
+              <label for="name" class="col-sm-2 col-form-label">Name</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="name" name="name">
+                <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name">
               </div>
+              @error('name')
+              <div class="invalid-feedback">
+                {{ $message }}
+              </div>
+              @enderror
             </div>
             <div class="row mb-3">
               <label for="email" name="email" class="col-sm-2 col-form-label">Email</label>
               <div class="col-sm-10">
-                <input type="email" class="form-control" id="email" name="email">
+                <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email">
               </div>
+              @error('email')
+              <div class="invalid-feedback">
+                {{ $message }}
+              </div>
+            @enderror
             </div>
             <fieldset class="row mb-3">
-              <legend class="col-form-label col-sm-2 pt-0">Feedback Type</legend>
+              <legend class="col-form-label col-sm-2 pt-0">Type</legend>
               <div class="col-sm-10">
                 <div class="form-check">
                   <input class="form-check-input" type="radio" name="type" id="type1" value="Comments" checked>
@@ -51,7 +61,7 @@
             </fieldset>
             <div class="mb-3">
               <label for="body" class="form-label">Describe your feedback</label>
-              <textarea class="form-control" id="body" rows="3" name="body"></textarea>
+              <textarea class="form-control @error('body') is-invalid @enderror" id="body" rows="3" name="body"></textarea>
             </div>
             <button class="w-100 btn btn-lg btn-primary mt-3" type="submit">Submit</button>
           </form>

@@ -49,13 +49,12 @@ Route::get('/about', function(){
 });
 
 Route::get('/category', [CoursesController::class, 'index']);
-
 Route::get('/category/{category:slug}',[CoursesController::class, 'show']);
 Route::get("/course/{course}",[CoursesController::class, 'getCourse']);
 
 Route::get('/feedback',[FeedbackController::class,'index']);
 Route::post('/feedback',[FeedbackController::class, 'store']);
-Route::resource('/dashboard/feedbacks', DashboardFeedbackController::class)->except(['create', 'edit', 'update']);
+Route::resource('/dashboard/feedbacks', DashboardFeedbackController::class)->except(['create', 'edit', 'update'])->middleware('auth');
 
 Route::get('/dashboard',[DashboardController::class,'index']);
 
@@ -63,16 +62,16 @@ Route::get('/login',[LoginController::class, 'index'])->name('login')->middlewar
 Route::post('/login',[LoginController::class, 'authenticate']);
 Route::post('/logout',[LoginController::class, 'logout']);
 
-Route::get('/register', [RegisterController::class, 'create']);
+Route::get('/register', [RegisterController::class, 'create'])->middleware('auth');
 Route::post('/register', [RegisterController::class, 'store']);
 
-Route::resource('/dashboard/courses', DashboardCourseController::class)->middleware('auth');
-Route::resource('/dashboard/categories', DashboardCategoryController::class)->except('show');
+Route::resource('/dashboard/courses', DashboardCourseController::class)->middleware('auth')->middleware('auth');
+Route::resource('/dashboard/categories', DashboardCategoryController::class)->except('show')->middleware('auth');
 Route::get('/dashboard/categories/fillSlug', [DashboardCategoryController::class, 'fillSlug']);
 
-Route::resource('/dashboard/users', SuperAdminController::class)->except(['show','edit','update']);
+Route::resource('/dashboard/users', SuperAdminController::class)->except(['show','edit','update'])->middleware('auth');
 
-Route::get('/dashboard/changepassword',[ChangePasswordController::class, 'index']);
-Route::post('/dashboard/changepassword',[ChangePasswordController::class, 'changePassword']);
+Route::get('/dashboard/changepassword',[ChangePasswordController::class, 'index'])->middleware('auth');
+Route::post('/dashboard/changepassword',[ChangePasswordController::class, 'changePassword'])->middleware('auth');
 
 
