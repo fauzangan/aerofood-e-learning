@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 
 use App\Models\Category;
 use App\Models\Course;
+use App\Models\User;
 
 class DatabaseSeeder extends Seeder
 {
@@ -26,18 +27,33 @@ class DatabaseSeeder extends Seeder
 
 
         // Kategori 1
+
+        User::create([
+            'name' => 'Fauzan Zaman',
+            'username' => 'fauzanz',
+            'email' => 'fauzan12356@gmail.com',
+            'is_super' => 1,
+            'password' => bcrypt('12345')
+        ]);
+
+        User::create([
+            'name' => 'Syahrul Ramadhan',
+            'username' => 'syahrulganz',
+            'email' => 'syahrul@gmail.com',
+            'is_super' => 0,
+            'password' => bcrypt('12345')
+        ]);
+        
         Category::create([
             'name' => 'Hot Kitchen',
             'slug' => 'hot-kitchen',
-            'image' => 'https://source.unsplash.com/500x800?food,hot-kitchen',
             'excerpt' => 'Bagian hot kitchen ini memiliki tugas untuk mengolah semua bahan makanan makanan yang menjadi tugas dari saucier dan entremetier pada srtuktur organisasi versi lengkap. Hot kitchen dibagi menjadi 2 bagian yaitu kitchen banquet dan kitchen a’la carte.'
         ]);
 
         Course::create([
             'category_id' => 1,
+            'user_id'=> 1,
             'title' => 'Nasi Goreng Spesial',
-            'slug' => 'nasi-goreng-spesial',
-            'image' => 'fried rice',
             'excerpt' => 'Nasi Goreng dikenal sebagai masakan nasional Indonesia dan ditempatkan pada peringkat kedua dalam daftar 50 Makanan Terlezat di Dunia setelah rendang oleh CNN International.',
             'body' => "<p>Nasi Goreng dikenal sebagai masakan nasional Indonesia dan ditempatkan pada peringkat kedua dalam daftar '50 Makanan Terlezat di Dunia' setelah rendang oleh CNN International.</p>
             <p>Nasi Goreng Special signature Garuda Indonesia disajikan dengan tumis udang balado, ayam goreng mentega, telur mata sapi dan sambal bajak.
@@ -59,9 +75,8 @@ class DatabaseSeeder extends Seeder
 
         Course::create([
             'category_id' => 1,
+            'user_id'=> 1,
             'title' => 'Honey Glazed Salmon with Quinoa',
-            'slug' => 'honey-glazed-salmon-with-quinoa',
-            'image' => 'salmon',
             'excerpt' => 'Salmon fillet disiram dengan saus teriyaki, disajikan dengan tumisan wortel, timun, labu, daikon ditambah salad quinoa, potongan cabai, daun bawang, dan edamame kukus.',
             'body' => "<p>Salmon fillet disiram dengan saus teriyaki, disajikan dengan tumisan wortel, timun, labu, daikon ditambah salad quinoa, potongan cabai, daun bawang, dan edamame kukus. </p>
             <p>Bahan: </p>
@@ -81,9 +96,8 @@ class DatabaseSeeder extends Seeder
 
         Course::create([
             'category_id' => 1,
+            'user_id'=> 1,
             'title' => 'Poach Salmon, mashed potato, and Asparagus',
-            'slug' => 'poach-salmon-mashed-potato-asparagus',
-            'image' => 'salmon potato',
             'excerpt' => 'Kombinasi ikan salmon yang direbus akan membawa perpaduan rasa dan tekstur yang unik di lidah Anda. Bersama mashed potato, asparagus, dan grilled tomato akan melengkapi kelezatan menu ini, namun tetap memenuhi kadar kebutuhan kalori Anda yang mempunyai alergi terhadap gluten.',
             'body' => "<p>Kombinasi ikan salmon yang direbus akan membawa perpaduan rasa dan tekstur yang unik di lidah Anda.</p>
             <p>Kombinasi ikan salmon yang direbus akan membawa perpaduan rasa dan tekstur yang unik di lidah Anda.</p>
@@ -110,35 +124,30 @@ class DatabaseSeeder extends Seeder
         Category::create([
             'name' => 'Cold Kitchen',
             'slug' => 'cold-kitchen',
-            'image' => 'https://source.unsplash.com/500x800?cold-kitchen',
             'excerpt' => 'Kitchen yang merupakan tempat pengolahan bahan-bahan makanan yang membuat hidangan pembuka (cold appetizer), juga membuat cold souce seperti mayonaise, thousand island, callipso, souce, dll. Outlet ini juga menangani pengolahan buah-buahan.'
         ]);
 
         Category::create([
             'name' => 'Pastry',
             'slug' => 'pastry',
-            'image' => 'https://source.unsplash.com/500x800?Pastry',
             'excerpt' => 'Pastry dikenal sebagai roti yang diolah dengan cara panggang. Roti ini biasanya terbuat dari gula, susu, mentega, lemak, bubuk pemuai dan/atau telur. Terdapat beberapa jenis produk pastry yang terkenal. Mulai dari choux pastry, croissant pastry, dll.'
         ]);
 
         Category::create([
             'name' => 'Vegetable',
             'slug' => 'vegetable',
-            'image' => 'https://source.unsplash.com/500x800?Vegetable',
             'excerpt' => 'Memiliki hidup yang sehat jadi salah satu impian banyak orang. Bisa menikmati berbagai aktivitas dengan mudah, selalu fokus dalam menyelesaikan pekerjaan, hingga merasa bahagia setiap harinya. Tentu hal ini bisa kamu dapatkan dengan.'
         ]);
 
         Category::create([
             'name' => 'Alcohol',
             'slug' => 'alcohol',
-            'image' => 'https://source.unsplash.com/500x800?Alcohol',
             'excerpt' => 'Alkohol berawal dari senyawa kimia hidrokarbon yang terdiri dari dua atom, yaitu karbon (C) dan hidrogen (H). Berdasarkan tiga jenis ikatan pada hidrokarbon, salah satunya adalah alkana, kita bisa lihat kalau alkohol merupakan turunan dari alkana.'
         ]);
 
         Category::create([
             'name' => 'Coffee',
             'slug' => 'coffee',
-            'image' => 'https://source.unsplash.com/500x800?Coffee',
             'excerpt' => 'Kopi adalah minuman hasil seduhan biji kopi yang telah disangrai dan dihaluskan menjadi bubuk.[2] Kopi merupakan salah satu komoditas di dunia yang dibudidayakan lebih dari 50 negara. Spesies pohon kopi yang dikenal secara umum yaitu Kopi Robusta.'
         ]);
     }

@@ -10,13 +10,13 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link {{ ($active === "homepage") ? 'active' : ''  }}" href="/" >Home</a>
+            <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" href="/" >Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {{ ($active === "courses") ? 'active' : ''  }}" href="/category" >Courses</a>
+            <a class="nav-link {{ Request::is('category*') ? 'active' : '' }}" href="/category" >Courses</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {{ ($active === "feedback") ? 'active' : ''  }}" href="#" >Feedback</a>
+            <a class="nav-link {{ Request::is('feedback*') ? 'active' : '' }}" href="/feedback" >Feedback</a>
           </li>
         </ul>
         <ul class="navbar-nav ms-auto">
@@ -26,9 +26,7 @@
               {{ auth()->user()->name }}
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="/dashboard"><i class="bi bi-layout-text-window-reverse"></i> Courses</a></li>
-              <li><a class="dropdown-item" href="/profile"><i class="bi bi-person"></i> My Profile</a></li>
-              <li><a class="dropdown-item" href="#"><i class="bi bi-gear"></i> Setting</a></li>
+              <li><a class="dropdown-item" href="/dashboard/courses"><i class="bi bi-layout-text-window-reverse"></i> Dashboard </a></li>
               <li><hr class="dropdown-divider"></li>
               <li>
                 <form action="/logout" method="POST">

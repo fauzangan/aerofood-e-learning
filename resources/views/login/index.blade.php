@@ -10,7 +10,7 @@
                 <div class="text-center">
                     <img class="mb-4" src="https://learning-aic.aerofood.co.id/Elegantic/images/ALS.png" alt="" length="140" height="80">
                 </div>
-              <h2 class="h3 mb-3 fw-normal text-center">Login E-Learning Aerofood ACS</h2>
+              <h2 class="h3 mb-3 fw-normal text-center">Login Admin</h2>
 
               @if(session()->has('registerSuccess'))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -46,7 +46,7 @@
               </div>
               <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
             </form>
-            <small class="d-block text-center mt-3">Not Registered? <a href="/register">Register Now!</a></small>
+            {{-- <small class="d-block text-center mt-3">Not Registered? <a href="/register">Register Now!</a></small> --}}
           </main>
     </div>
 </div>
