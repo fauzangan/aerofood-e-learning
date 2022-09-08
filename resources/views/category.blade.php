@@ -1,3 +1,9 @@
+<style>
+  .course{
+    color: black;
+    background-image: linear-gradient(to right, white, #FFF5EE)
+  }
+</style>
 @extends("layouts.main")
 @section("container")
     <h1 class="mb-3 text-center">All Courses</h1>
@@ -7,7 +13,7 @@
           @foreach($categories as $category)
           <div class="col">
             <div class="card mb-3" style="max-width: 540px;">
-              <div class="row g-0">
+              <div class="course row g-0">
                 <div class="col-md-4">
                   <img src="https://source.unsplash.com/500x800?{{ $category->slug }}" class="img-fluid rounded-start" alt="">
                 </div>

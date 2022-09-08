@@ -1,4 +1,10 @@
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+<style>
+  .gradient{
+    background-image: linear-gradient(#87CEEB, #AFEEEE)
+  }
+</style>
+<nav class="navbar navbar-expand-lg navbar-light gradient" >
+{{-- style="background-color: #e3f2fd;"> --}}
     <div class="container">
     <a class="navbar-brand" href="/">
         <img src="https://learning-aic.aerofood.co.id/Elegantic/images/ALC.png" alt="" length="60" height="30" class="d-inline-block align-text-top">
