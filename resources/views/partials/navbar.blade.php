@@ -3,7 +3,9 @@
     background-image: linear-gradient(#87CEEB, #AFEEEE)
   }
 </style>
-<nav class="navbar navbar-expand-lg navbar-light gradient" >
+<nav class="navbar navbar-expand-lg navbar-light gradient
+
+" >
 {{-- style="background-color: #e3f2fd;"> --}}
     <div class="container">
     <a class="navbar-brand" href="/">

@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use \Cviebrock\EloquentSluggable\Services\SlugService;
 use App\Models\Category;
 use App\Models\Course;
@@ -34,10 +33,6 @@ class DashboardCategoryController extends Controller
         return redirect('/dashboard/categories')->with('success','New Category has been added!');
     }
 
-    public function show(Category $category)
-    {
-        //
-    }
 
     public function edit(Category $category)
     {

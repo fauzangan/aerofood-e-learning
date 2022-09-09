@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
@@ -19,6 +18,7 @@ class SuperAdminController extends Controller
 
     public function create()
     {
+        $this->authorize('superadmin');
         return view('dashboard.administrator.create');
     }
 
