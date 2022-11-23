@@ -4,7 +4,7 @@
   <h1 class="h2">Courses Dashboard</h1>
 </div>
 
-<div class="table-responsive col-lg-11">
+<div class="table-responsive col-lg-12">
   <a href="/dashboard/courses/create" class="btn btn-primary mb-3">Add New Course</a>
   @if(session()->has('success'))
     <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -12,7 +12,9 @@
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
   @endif
-  <table class="table table-striped table-sm">
+
+
+  <table id="courses-table" class="table table-striped table-sm">
     <thead>
       <tr>
         <th scope="col">#</th>
@@ -45,4 +47,13 @@
     </tbody>
   </table>
 </div>
+
+
+    {{-- Data Tables --}}
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.13.1/datatables.min.js"></script>
+    <script>
+    $('#courses-table').DataTable({});
+    </script>
+
 @endsection

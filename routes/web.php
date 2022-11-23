@@ -31,16 +31,6 @@ Route::get('/', function(){
     ]);
 });
 
-Route::get('/profile', function(){
-    return view('profile',[
-        "title" => "Profile",
-        'active' => 'profile',
-        "name" => "Fauzan Zaman",
-        "email" => "fauzan12356@gmail.com",
-        "image" => "fauzan.jpg"
-    ]);
-});
-
 Route::get('/about', function(){
     return view('about', [
         'title' => 'About Us',
@@ -74,4 +64,8 @@ Route::resource('/dashboard/users', SuperAdminController::class)->except(['show'
 Route::get('/dashboard/changepassword',[ChangePasswordController::class, 'index'])->middleware('auth');
 Route::post('/dashboard/changepassword',[ChangePasswordController::class, 'changePassword'])->middleware('auth');
 
-
+Route::get('/test', function(){
+    return view('test.index',[
+        'title' => 'Test Page'
+    ]);
+});
