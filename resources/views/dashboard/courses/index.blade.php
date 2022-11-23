@@ -5,13 +5,15 @@
 </div>
 
 <div class="table-responsive col-lg-12">
-  <a href="/dashboard/courses/create" class="btn btn-primary mb-3">Add New Course</a>
+    <a href="/dashboard/courses/create" class="btn btn-primary mb-3">Add New Course</a>
+    <a href="#" class="btn btn-success mb-3">Recycle</a>
   @if(session()->has('success'))
     <div class="alert alert-success alert-dismissible fade show" role="alert">
       {{ session('success') }}
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
   @endif
+
 
 
   <table id="courses-table" class="table table-striped table-sm">
