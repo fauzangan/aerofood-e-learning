@@ -24,6 +24,11 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 |
 */
 
+
+Route::get('/dashboard/courses/recycle', [DashboardCourseController::class, 'recycle']);
+Route::get('/dashboard/courses/restore/{course}', [DashboardCourseController::class, 'restore']);
+Route::post('/dashboard/courses/delete/{course}', [DashboardCourseController::class, 'delete']);
+
 Route::get('/', function(){
     return view('home',[
         'title' => 'Homepage',
@@ -41,19 +46,16 @@ Route::get('/about', function(){
 Route::get('/category', [CoursesController::class, 'index']);
 Route::get('/category/{category:slug}',[CoursesController::class, 'show']);
 Route::get("/course/{course}",[CoursesController::class, 'getCourse']);
-
 Route::get('/feedback',[FeedbackController::class,'index']);
 Route::post('/feedback',[FeedbackController::class, 'store']);
 Route::resource('/dashboard/feedbacks', DashboardFeedbackController::class)->except(['create', 'edit', 'update'])->middleware('auth');
-
 Route::get('/dashboard',[DashboardController::class,'index']);
-
 Route::get('/login',[LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login',[LoginController::class, 'authenticate']);
 Route::post('/logout',[LoginController::class, 'logout']);
-
 Route::get('/register', [RegisterController::class, 'create'])->middleware('auth');
 Route::post('/register', [RegisterController::class, 'store']);
+
 
 Route::resource('/dashboard/courses', DashboardCourseController::class)->middleware('auth')->middleware('auth');
 Route::resource('/dashboard/categories', DashboardCategoryController::class)->except('show')->middleware('auth');
@@ -69,3 +71,4 @@ Route::get('/test', function(){
         'title' => 'Test Page'
     ]);
 });
+

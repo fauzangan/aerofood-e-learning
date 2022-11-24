@@ -1,18 +1,18 @@
 @extends('dashboard.layouts.main')
 @section('container')
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-  <h1 class="h2">Courses Dashboard</h1>
+  <h1 class="h2">Courses Recycle Bin</h1>
 </div>
 
 <div class="table-responsive col-lg-12">
-    <a href="/dashboard/courses/create" class="btn btn-primary mb-3">Add New Course</a>
-    <a href="/dashboard/courses/recycle" class="btn btn-success mb-3">Recycle</a>
-  @if(session()->has('success'))
+    @if(session()->has('success'))
     <div class="alert alert-success alert-dismissible fade show" role="alert">
       {{ session('success') }}
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
   @endif
+
+
 
   <table id="courses-table" class="table table-striped table-sm">
     <thead>
@@ -21,7 +21,7 @@
         <th scope="col">Title</th>
         <th scope="col">Category</th>
         <th scope="col">Created By</th>
-        <th scope="col">Created At</th>
+        <th scope="col">Deleted At</th>
         <th scope="col">Action</th>
       </tr>
     </thead>
@@ -32,12 +32,10 @@
           <td>{{ $course->title }}</td>
           <td>{{ $course->category->name }}</td>
           <td>{{ $course->author->name }}</td>
-          <td>{{ $course->created_at->toDateString() }}</td>
+          <td>{{ $course->deleted_at->toDateString() }}</td>
           <td>
-            <a href="/dashboard/courses/{{ $course->id }}" class="badge bg-info"><span data-feather="eye"></span></a>
-            <a href="/dashboard/courses/{{ $course->id }}/edit" class="badge bg-warning"><span data-feather="edit"></span></a>
-            <form action="/dashboard/courses/{{ $course->id }}" method="POST" class="d-inline">
-              @method('delete')
+            <a href="/dashboard/courses/restore/{{ $course->id }}" class="badge bg-success"><span data-feather="rotate-ccw"></span></a>
+            <form action="/dashboard/courses/delete/{{ $course->id }}" method="POST" class="d-inline">
               @csrf
               <button class="badge bg-danger border-0" onclick="return confirm('Are You Sure?')"><span data-feather="trash-2"></span></button>
             </form>
@@ -48,6 +46,7 @@
   </table>
 </div>
 
+<a href="/dashboard/courses" class="btn btn-primary mb-3"><span data-feather="arrow-left"></span> Back</a>
 
     {{-- Data Tables --}}
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>

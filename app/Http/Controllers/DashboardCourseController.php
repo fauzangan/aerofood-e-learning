@@ -93,4 +93,23 @@ class DashboardCourseController extends Controller
         Course::destroy($course->id);
         return redirect('/dashboard/courses')->with('success', 'Course has been deleted');
     }
+
+    public function recycle()
+    {
+        return view('dashboard.courses.recycle', [
+            'courses' => Course::onlyTrashed()->get()
+        ]);
+    }
+
+    public function restore($courseId)
+    {
+        Course::onlyTrashed()->find($courseId)->restore();
+        return redirect('/dashboard/courses/recycle')->with('success', 'Course has been restored');
+    }
+
+    public function delete($courseId)
+    {
+        Course::onlyTrashed()->find($courseId)->forceDelete();
+        return redirect('/dashboard/courses/recycle')->with('success', 'Course has been deleted');
+    }
 }
