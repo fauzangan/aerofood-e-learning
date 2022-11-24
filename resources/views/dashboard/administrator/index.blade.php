@@ -5,8 +5,8 @@
 </div>
 
 <div class="table-responsive col-lg-8">
-  <a href="/dashboard/users/create" class="btn btn-primary mb-3">Add New Admin</a>
-  <a href="#" class="btn btn-success mb-3">Recycle</a>
+  <a href="/dashboard/users/create" class="btn btn-primary mb-3"><span class="mb-1" data-feather="plus"></span> Add New Admin</a>
+  <a href="#" class="btn btn-success mb-3"><span class="mb-1" data-feather="trash"></span> Recycle</a>
   @if(session()->has('success'))
     <div class="alert alert-success alert-dismissible fade show" role="alert">
       {{ session('success') }}

@@ -5,7 +5,7 @@
 </div>
 
 <div class="table-responsive col-lg-8">
-  <a href="/dashboard/categories/create" class="btn btn-primary mb-3">Add New Category</a>
+  <a href="/dashboard/categories/create" class="btn btn-primary mb-3"><span class="mb-1" data-feather="plus"></span> Add New Category</a>
   @if(session()->has('success'))
     <div class="alert alert-success alert-dismissible fade show" role="alert">
       {{ session('success') }}

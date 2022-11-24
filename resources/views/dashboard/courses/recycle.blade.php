@@ -46,7 +46,7 @@
   </table>
 </div>
 
-<a href="/dashboard/courses" class="btn btn-primary mb-3"><span data-feather="arrow-left"></span> Back</a>
+<a href="/dashboard/courses" class="btn btn-primary mb-3"><span class="mb-1" data-feather="arrow-left"></span> Back</a>
 
     {{-- Data Tables --}}
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
