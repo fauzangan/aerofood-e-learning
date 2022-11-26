@@ -14,48 +14,48 @@
     </div>
   @endif
 
-<div class="container-fluid px-1 mt-1">
-  <div class="card mb-4">
-      <div class="card-header">
-          <i class="fas fa-table me-1"></i>
-          All Courses
-      </div>
-      <div class="card-body">
-          <table class="table" id="courses-table">
-            <thead>
-              <tr>
-                <th scope="col">No.</th>
-                <th scope="col">Title</th>
-                <th scope="col">Category</th>
-                {{-- <th scope="col">Created By</th> --}}
-                <th scope="col">Created At</th>
-                <th scope="col">Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              @foreach($courses as $course)
+  <div class="container-fluid px-1 mt-1">
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-table me-1"></i>
+            All Courses
+        </div>
+        <div class="card-body">
+            <table class="table" id="courses-table">
+              <thead>
                 <tr>
-                  <td>{{ $loop->iteration }}</td>
-                  <td>{{ $course->title }}</td>
-                  <td>{{ $course->category->name }}</td>
-                  {{-- <td>{{ $course->author->name }}</td> --}}
-                  <td>{{ $course->created_at->toDateString() }}</td>
-                  <td>
-                    <a href="/dashboard/courses/{{ $course->id }}" class="badge bg-info"><span data-feather="eye"></span></a>
-                    <a href="/dashboard/courses/{{ $course->id }}/edit" class="badge bg-warning"><span data-feather="edit"></span></a>
-                    <form action="/dashboard/courses/{{ $course->id }}" method="POST" class="d-inline">
-                      @method('delete')
-                      @csrf
-                      <button class="badge bg-danger border-0" onclick="return confirm('Are You Sure?')"><span data-feather="trash-2"></span></button>
-                    </form>
-                  </td>
+                  <th scope="col">No.</th>
+                  <th scope="col">Title</th>
+                  <th scope="col">Category</th>
+                  {{-- <th scope="col">Created By</th> --}}
+                  <th scope="col">Created At</th>
+                  <th scope="col">Action</th>
                 </tr>
-              @endforeach
-            </tbody>
-          </table>
-      </div>
+              </thead>
+              <tbody>
+                @foreach($courses as $course)
+                  <tr>
+                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $course->title }}</td>
+                    <td>{{ $course->category->name }}</td>
+                    {{-- <td>{{ $course->author->name }}</td> --}}
+                    <td>{{ $course->created_at->toDateString() }}</td>
+                    <td>
+                      <a href="/dashboard/courses/{{ $course->id }}" class="badge bg-info"><span data-feather="eye"></span></a>
+                      <a href="/dashboard/courses/{{ $course->id }}/edit" class="badge bg-warning"><span data-feather="edit"></span></a>
+                      <form action="/dashboard/courses/{{ $course->id }}" method="POST" class="d-inline">
+                        @method('delete')
+                        @csrf
+                        <button class="badge bg-danger border-0" onclick="return confirm('Are You Sure?')"><span data-feather="trash-2"></span></button>
+                      </form>
+                    </td>
+                  </tr>
+                @endforeach
+              </tbody>
+            </table>
+        </div>
+    </div>
   </div>
-</div>
   {{-- <table id="courses-table" class="table table-striped table-sm">
     <thead>
       <tr>

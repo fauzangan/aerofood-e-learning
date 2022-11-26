@@ -42,4 +42,22 @@ class SuperAdminController extends Controller
         User::destroy($user->id);
         return redirect('/dashboard/users')->with('success', 'Admin has been deleted');
     }
+
+    public function recycle(){
+        return view('dashboard.administrator.recycle', [
+            'users' => User::onlyTrashed()->get()
+        ]);
+    }
+
+    public function restore($courseId)
+    {
+        User::onlyTrashed()->find($courseId)->restore();
+        return redirect('/dashboard/users/recycle')->with('success', 'Admin has been restored');
+    }
+
+    public function delete($userID)
+    {
+        User::onlyTrashed()->find($userID)->forceDelete();
+        return redirect('/dashboard/users/recycle')->with('success', 'Admin has been deleted');
+    }
 }

@@ -24,11 +24,6 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 |
 */
 
-
-Route::get('/dashboard/courses/recycle', [DashboardCourseController::class, 'recycle']);
-Route::get('/dashboard/courses/restore/{course}', [DashboardCourseController::class, 'restore']);
-Route::post('/dashboard/courses/delete/{course}', [DashboardCourseController::class, 'delete']);
-
 Route::get('/', function(){
     return view('home',[
         'title' => 'Homepage',
@@ -36,33 +31,42 @@ Route::get('/', function(){
     ]);
 });
 
-Route::get('/about', function(){
-    return view('about', [
-        'title' => 'About Us',
-        'active' => 'about'
-    ]);
-});
+Route::get('/dashboard',[DashboardController::class,'index']);
 
-Route::get('/category', [CoursesController::class, 'index']);
-Route::get('/category/{category:slug}',[CoursesController::class, 'show']);
-Route::get("/course/{course}",[CoursesController::class, 'getCourse']);
+
+
+
+// Feedback Route
 Route::get('/feedback',[FeedbackController::class,'index']);
 Route::post('/feedback',[FeedbackController::class, 'store']);
 Route::resource('/dashboard/feedbacks', DashboardFeedbackController::class)->except(['create', 'edit', 'update'])->middleware('auth');
-Route::get('/dashboard',[DashboardController::class,'index']);
+
+
+// Login Route
 Route::get('/login',[LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login',[LoginController::class, 'authenticate']);
 Route::post('/logout',[LoginController::class, 'logout']);
-Route::get('/register', [RegisterController::class, 'create'])->middleware('auth');
-Route::post('/register', [RegisterController::class, 'store']);
 
-
+// Courses Route
+Route::get('/category', [CoursesController::class, 'index']);
+Route::get("/course/{course}",[CoursesController::class, 'getCourse']);
+Route::get('/dashboard/courses/recycle', [DashboardCourseController::class, 'recycle']);
+Route::get('/dashboard/courses/restore/{course}', [DashboardCourseController::class, 'restore']);
+Route::post('/dashboard/courses/delete/{course}', [DashboardCourseController::class, 'delete']);
 Route::resource('/dashboard/courses', DashboardCourseController::class)->middleware('auth')->middleware('auth');
+
+// Categories Route
+Route::get('/category/{category:slug}',[CoursesController::class, 'show']);
 Route::resource('/dashboard/categories', DashboardCategoryController::class)->except('show')->middleware('auth');
 Route::get('/dashboard/categories/fillSlug', [DashboardCategoryController::class, 'fillSlug']);
 
+// User Controller
+Route::get('/dashboard/users/recycle', [SuperAdminController::class, 'recycle']);
+Route::get('/dashboard/users/restore/{user}', [SuperAdminController::class, 'restore']);
+Route::post('/dashboard/users/delete/{user}', [SuperAdminController::class, 'delete']);
 Route::resource('/dashboard/users', SuperAdminController::class)->except(['show','edit','update'])->middleware('auth');
 
+// Changepassword Controller
 Route::get('/dashboard/changepassword',[ChangePasswordController::class, 'index'])->middleware('auth');
 Route::post('/dashboard/changepassword',[ChangePasswordController::class, 'changePassword'])->middleware('auth');
 

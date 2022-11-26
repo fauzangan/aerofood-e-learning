@@ -6,7 +6,7 @@
 
 <div class="table-responsive col-lg-8">
   <a href="/dashboard/users/create" class="btn btn-primary mb-3 mx-1"><span class="mb-1" data-feather="plus"></span> New Admin</a>
-  <a href="#" class="btn btn-success mb-3"><span class="mb-1" data-feather="trash"></span> Recycle Bin</a>
+  <a href="/dashboard/users/recycle" class="btn btn-success mb-3"><span class="mb-1" data-feather="trash"></span> Recycle Bin</a>
   @if(session()->has('success'))
     <div class="alert alert-success alert-dismissible fade show" role="alert">
       {{ session('success') }}

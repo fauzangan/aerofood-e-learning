@@ -87,9 +87,9 @@ class DashboardCourseController extends Controller
 
     public function destroy(Course $course)
     {
-        if($course->image){
-            Storage::delete($course->image);
-        }
+        // if($course->image){
+        //     Storage::delete($course->image);
+        // }
         Course::destroy($course->id);
         return redirect('/dashboard/courses')->with('success', 'Course has been deleted');
     }
@@ -109,6 +109,10 @@ class DashboardCourseController extends Controller
 
     public function delete($courseId)
     {
+        $course = Course::onlyTrashed()->find($courseId)->get();
+        if($course->image){
+            Storage::delete($course->image);
+        }
         Course::onlyTrashed()->find($courseId)->forceDelete();
         return redirect('/dashboard/courses/recycle')->with('success', 'Course has been deleted');
     }
