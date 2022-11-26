@@ -1,7 +1,7 @@
 @extends('dashboard.layouts.main')
 @section('container')
 <div class="row justify-content-center mt-5">
-    <h1 class="h3 mb-3 fw-normal text-center">Admin Registration</h1>
+    <h1 class="h3 mb-3 fw-normal text-center">New Administrator</h1>
     <div class="col-lg-5">
         <form action="/dashboard/users" method="POST">
             @csrf
