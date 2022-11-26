@@ -21,8 +21,8 @@
           All Categories
       </div>
       <div class="card-body">
-          <table class="table" id="category-table">
-            <thead>
+          <table class="table table-bordered" id="category-table">
+            <thead class="table-dark">
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Category Name</th>

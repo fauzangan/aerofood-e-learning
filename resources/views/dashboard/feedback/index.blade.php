@@ -20,8 +20,8 @@
           All Feedbacks
       </div>
       <div class="card-body">
-          <table class="table" id="feedback-table">
-            <thead>
+          <table class="table table-bordered" id="feedback-table">
+            <thead class="table-dark">
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Name</th>

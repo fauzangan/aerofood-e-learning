@@ -21,8 +21,8 @@
             All Courses
         </div>
         <div class="card-body">
-            <table class="table" id="courses-table">
-              <thead>
+            <table class="table table-bordered" id="courses-table">
+              <thead class="table-dark">
                 <tr>
                   <th scope="col">No.</th>
                   <th scope="col">Title</th>

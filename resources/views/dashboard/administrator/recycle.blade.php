@@ -17,11 +17,11 @@
     <div class="card mb-4">
         <div class="card-header">
             <i class="fas fa-table me-1"></i>
-            All Administrator
+            Deleted Administrators
         </div>
         <div class="card-body">
-            <table class="table" id="administrator-table">
-              <thead>
+            <table class="table table-bordered" id="administrator-table">
+              <thead class="table-dark">
                 <tr>
                   <th scope="col">#</th>
                   <th scope="col">Name</th>

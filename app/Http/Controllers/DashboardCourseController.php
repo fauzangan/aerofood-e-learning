@@ -109,7 +109,8 @@ class DashboardCourseController extends Controller
 
     public function delete($courseId)
     {
-        $course = Course::onlyTrashed()->find($courseId)->get();
+        $course = Course::onlyTrashed()->where('id', $courseId)->get();
+        dd($course);
         if($course->image){
             Storage::delete($course->image);
         }
