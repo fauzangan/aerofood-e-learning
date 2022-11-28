@@ -26,7 +26,7 @@
                   <th scope="col">Title</th>
                   <th scope="col">Category</th>
                   {{-- <th scope="col">Created By</th> --}}
-                  <th scope="col">Created At</th>
+                  <th scope="col">Deleted At</th>
                   <th scope="col">Action</th>
                 </tr>
               </thead>
@@ -37,7 +37,7 @@
                     <td>{{ $course->title }}</td>
                     <td>{{ $course->category->name }}</td>
                     {{-- <td>{{ $course->author->name }}</td> --}}
-                    <td>{{ $course->created_at->toDateString() }}</td>
+                    <td>{{ $course->deleted_at->toDateString() }}</td>
                     <td>
                       <a href="/dashboard/courses/restore/{{ $course->id }}" class="badge bg-success"><span data-feather="rotate-ccw"></span></a>
                       <form action="/dashboard/courses/delete/{{ $course->id }}" method="POST" class="d-inline">

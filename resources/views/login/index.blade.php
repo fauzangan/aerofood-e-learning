@@ -8,7 +8,8 @@
             <form action="/login" method="POST">
               @csrf
                 <div class="text-center">
-                    <img class="mb-4" src="https://learning-aic.aerofood.co.id/Elegantic/images/ALS.png" alt="" length="140" height="80">
+                    {{-- <img class="mb-4" src="https://learning-aic.aerofood.co.id/Elegantic/images/ALS.png" alt="" length="140" height="80"> --}}
+                    <img class="mb-4" src="/img/logo-1.png" alt="" length="140" height="80">
                 </div>
               <h2 class="h3 mb-3 fw-normal text-center">Login Admin</h2>
 

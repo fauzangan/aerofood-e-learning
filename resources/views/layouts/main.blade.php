@@ -1,8 +1,8 @@
-<style>
+{{-- <style>
   .gradient2{
     background-image: linear-gradient(white, #87CEEB)
   }
-</style>
+</style> --}}
 <!doctype html>
 <html lang="en">
   <head>
@@ -22,8 +22,9 @@
     {{-- Carousel News --}}
     
     {{-- Title --}}
-    <title>Aerofood | {{ $title }}</title>
-    <link rel="icon" href="https://learning-aic.aerofood.co.id/Elegantic/images/favicon.png" type="image/x-icon">
+    <title>myLearn | {{ $title }}</title>
+    {{-- <link rel="icon" href="https://learning-aic.aerofood.co.id/Elegantic/images/favicon.png" type="image/x-icon"> --}}
+    <link rel="icon" href="/img/logo-1.png" type="image/x-icon">
   </head>
   <body class="d-flex flex-column min-vh-100 gradient2">
     @include('partials.navbar')

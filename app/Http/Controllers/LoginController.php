@@ -24,17 +24,13 @@ class LoginController extends Controller
 
             return redirect()->intended('/dashboard/courses');
         }
-
         return back()->with('loginError','Email atau Password Salah!');
     }
 
     public function logout(Request $request){
         Auth::logout();
-
         $request->session()->invalidate();
-
         $request->session()->regenerateToken();
-
         return redirect('/');
     }
 }

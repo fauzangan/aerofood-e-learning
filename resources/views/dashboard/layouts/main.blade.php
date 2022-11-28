@@ -4,8 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Tim KP">
-    <title>Dashboard e-Learning</title>
-    <link rel="icon" href="https://learning-aic.aerofood.co.id/Elegantic/images/favicon.png" type="image/x-icon">
+    <title>Dashboard myLearn</title>
+    {{-- <link rel="icon" href="https://learning-aic.aerofood.co.id/Elegantic/images/favicon.png" type="image/x-icon"> --}}
+    <link rel="icon" href="/img/logo-1.png" type="image/x-icon">
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
     {{-- Bootstrap --}}
