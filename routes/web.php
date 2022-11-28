@@ -24,6 +24,7 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 |
 */
 
+// Home Route
 Route::get('/', function(){
     return view('home',[
         'title' => 'Homepage',
@@ -31,16 +32,15 @@ Route::get('/', function(){
     ]);
 });
 
-Route::get('/dashboard',[DashboardController::class,'index']);
-
-
-
+// Dashboard Menu Route
+Route::get('/dashboard', function(){
+    return view('dashboard.index');
+})->middleware('auth');
 
 // Feedback Route
 Route::get('/feedback',[FeedbackController::class,'index']);
 Route::post('/feedback',[FeedbackController::class, 'store']);
 Route::resource('/dashboard/feedbacks', DashboardFeedbackController::class)->except(['create', 'edit', 'update'])->middleware('auth');
-
 
 // Login Route
 Route::get('/login',[LoginController::class, 'index'])->name('login')->middleware('guest');
@@ -70,6 +70,7 @@ Route::resource('/dashboard/users', SuperAdminController::class)->except(['show'
 Route::get('/dashboard/changepassword',[ChangePasswordController::class, 'index'])->middleware('auth');
 Route::post('/dashboard/changepassword',[ChangePasswordController::class, 'changePassword'])->middleware('auth');
 
+// Testing Page Route
 Route::get('/test', function(){
     return view('test.index',[
         'title' => 'Test Page'
