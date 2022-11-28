@@ -53,7 +53,7 @@ Route::get("/course/{course}",[CoursesController::class, 'getCourse']);
 Route::get('/dashboard/courses/recycle', [DashboardCourseController::class, 'recycle']);
 Route::get('/dashboard/courses/restore/{course}', [DashboardCourseController::class, 'restore']);
 Route::post('/dashboard/courses/delete/{course}', [DashboardCourseController::class, 'delete']);
-Route::resource('/dashboard/courses', DashboardCourseController::class)->middleware('auth')->middleware('auth');
+Route::resource('/dashboard/courses', DashboardCourseController::class)->middleware('auth');
 
 // Categories Route
 Route::get('/category/{category:slug}',[CoursesController::class, 'show']);
@@ -64,7 +64,7 @@ Route::get('/dashboard/categories/fillSlug', [DashboardCategoryController::class
 Route::get('/dashboard/users/recycle', [SuperAdminController::class, 'recycle']);
 Route::get('/dashboard/users/restore/{user}', [SuperAdminController::class, 'restore']);
 Route::post('/dashboard/users/delete/{user}', [SuperAdminController::class, 'delete']);
-Route::resource('/dashboard/users', SuperAdminController::class)->except(['show','edit','update'])->middleware('auth');
+Route::resource('/dashboard/users', SuperAdminController::class)->except(['show','edit','update'])->middleware('super_admin');
 
 // Changepassword Controller
 Route::get('/dashboard/changepassword',[ChangePasswordController::class, 'index'])->middleware('auth');
